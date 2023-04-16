@@ -61,7 +61,7 @@ const TopBar: React.FC<TopBarProps> = ({ onSend, onReset }) => {
             variant="outlined"
             color="success"
             onClick={handleSend}
-            className="mr-2"
+            className="m-2"
           >
             Send
           </Button>
