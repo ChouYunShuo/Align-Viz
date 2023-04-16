@@ -1,11 +1,38 @@
 import { DpCellType, DirectionType } from "../../types/AlgorithmType";
 const colors = [
-  "red",
-  "yellow",
-  "orange",
-  "purple",
+  "rgb(255, 0, 0)",
+  "rgb(255, 128, 0)",
+  "rgb(255, 215, 0)",
+  "rgb(255, 224, 32)",
+  "rgb(255, 160, 96)",
+  "rgb(255, 97, 64)",
+  "rgb(210, 105, 30)",
+  "rgb(165, 42, 42)",
   // Add more colors if you have more local alignments
 ];
+// class SeededRandom {
+//   private _seed: number;
+
+//   constructor(seed: number) {
+//     this._seed = seed;
+//   }
+
+//   random(): number {
+//     this._seed = (this._seed * 16807) % 2147483647;
+//     return (this._seed - 1) / 2147483646;
+//   }
+// }
+
+// function randomRGBColor(seed: number, step: number = 64): string {
+//   const random = new SeededRandom(seed + 1);
+//   // Restrict the range of red and green components to make colors close to yellow, red, and orange.
+//   // Restrict the range of red and green components to make colors close to yellow, red, and orange.
+//   const r = Math.floor(random.random() * (256 / step)) * step; // Red component with larger step
+//   const g = Math.floor(random.random() * (256 / step)) * step; // Green component with larger step
+//   const b = Math.floor(random.random() * (64 / step)) * step; // Blue component with larger step
+
+//   return `rgb(${r}, ${g}, ${b})`;
+// }
 export function SmithWaterman(
   seq1: string,
   seq2: string,
@@ -16,6 +43,7 @@ export function SmithWaterman(
   scoreMatrix: number[][];
   tracebacks: string[][];
   localPaths: [number, number, string][];
+  maxScore: number;
 } {
   const len1 = seq1.length;
   const len2 = seq2.length;
@@ -99,11 +127,10 @@ export function SmithWaterman(
       traceback(i, j - 1, alignment1 + "-", alignment2 + seq2[j - 1], color);
     }
   };
-  console.log(localMaxima);
+  //console.log(localMaxima);
   localMaxima.forEach(([i, j], idx) => {
     traceback(i, j, "", "", colors[idx]);
-    console.log(colors[idx]);
   });
 
-  return { scoreMatrix, tracebacks, localPaths };
+  return { scoreMatrix, tracebacks, localPaths, maxScore };
 }

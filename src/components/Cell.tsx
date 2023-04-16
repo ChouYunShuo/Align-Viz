@@ -1,41 +1,39 @@
 import React, { FC } from "react";
-interface TestProps {
-  title?: string;
-  name?: string;
-}
-
+import styles from "../../styles/Cell.module.css";
 interface CellProps {
   cellSize: string;
   row: number;
   col: number;
   content: number;
-  cellStatus: "current" | "visited" | "unvisited" | "path";
+  cellStatus: "localpath" | "visited" | "unvisited" | "path";
   bgColor?: string;
 }
-const Cell: FC<CellProps> = ({
-  cellSize,
-  row,
-  col,
-  content,
-  cellStatus,
-  bgColor,
-}) => {
-  let backgroundColor = "white";
 
-  if (cellStatus === "current") {
-    backgroundColor = "blue";
-  } else if (cellStatus === "visited") {
-    backgroundColor = "green";
-  } else if (cellStatus === "path") {
-    backgroundColor = "yellow";
-  }
-  if (bgColor && cellStatus === "path") {
-    backgroundColor = bgColor;
-  }
+const Cell: FC<CellProps> = ({ cellSize, content, cellStatus, bgColor }) => {
+  let backgroundColor = "white";
+  const extraClassName =
+    cellStatus === "localpath"
+      ? "localpath"
+      : cellStatus === "visited"
+      ? "visited"
+      : cellStatus === "path"
+      ? "path"
+      : "";
+
+  // if (cellStatus === "current") {
+  //   backgroundColor = "blue";
+  // } else if (cellStatus === "visited") {
+  //   backgroundColor = "green";
+  // } else if (cellStatus === "path") {
+  //   backgroundColor = "yellow";
+  // }
+  // if (bgColor && cellStatus === "path") {
+  //   backgroundColor = bgColor;
+  // }
 
   const cellStyle = {
     display: "flex",
-    backgroundColor: backgroundColor,
+    backgroundColor: extraClassName === "localpath" ? bgColor : backgroundColor,
     color: "black",
     justifyContent: "center",
     alignItems: "center",
@@ -43,7 +41,22 @@ const Cell: FC<CellProps> = ({
     height: cellSize,
   };
 
-  return <div style={cellStyle}>{content}</div>;
+  return (
+    <div
+      className={
+        extraClassName === "visited"
+          ? styles.cellvisited
+          : extraClassName === "path"
+          ? styles.cellpath
+          : extraClassName === "localpath"
+          ? styles.localpath
+          : ""
+      }
+      style={cellStyle}
+    >
+      {content}
+    </div>
+  );
 };
 
 export default Cell;

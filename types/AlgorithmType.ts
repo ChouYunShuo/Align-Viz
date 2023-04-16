@@ -7,6 +7,6 @@ export interface DpCellType {
 
 export interface DisplayMatrixProps {
   value: number;
-  cellStatus: "current" | "visited" | "unvisited" | "path";
+  cellStatus: "localpath" | "visited" | "unvisited" | "path";
   bgColor?: string;
 }

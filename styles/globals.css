@@ -1,26 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+body,
+#root,
+.app,
+.content {
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: "Source Sans Pro", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
 }
 
-* {
-  box-sizing: border-box;
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
