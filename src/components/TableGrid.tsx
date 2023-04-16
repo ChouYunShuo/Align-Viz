@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import Cell from "./Cell";
 
 import { DpCellType, DisplayMatrixProps } from "../../types/AlgorithmType";
+
 interface TableGridProps {
   displayMatrix: DisplayMatrixProps[][];
   seq1: string;

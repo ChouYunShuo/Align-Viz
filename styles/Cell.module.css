@@ -1,6 +1,6 @@
 .cellvisited {
   animation-name: visitedAnimation;
-  animation-duration: 1.5s;
+  animation-duration: 0.6s;
   animation-timing-function: ease-out;
   animation-delay: 0;
   animation-direction: alternate;
