@@ -8,8 +8,28 @@
   animation-fill-mode: forwards;
   animation-play-state: running;
 }
-
 @keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(204, 0, 204, 0.75);
+  }
+
+  75% {
+    transform: scale(1.1);
+    background-color: rgba(53, 51, 255, 0.75);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(104, 153, 255, 0.75);
+  }
+}
+/* @keyframes visitedAnimation {
   0% {
     transform: scale(0.3);
     background-color: rgba(0, 0, 66, 0.75);
@@ -29,7 +49,7 @@
     transform: scale(1);
     background-color: rgba(0, 190, 218, 0.75);
   }
-}
+} */
 .cellpath {
   animation-name: shortestPath;
   animation-duration: 1.5s;
