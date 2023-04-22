@@ -16,12 +16,13 @@ function Home() {
   const [seq1, setSeq1] = useState<string>(init_seq1);
   const [seq2, setSeq2] = useState<string>(init_seq2);
   const [mode, setMode] = useState<"Global" | "Local">("Global");
+  const [matchScore, setMatchScore] = useState<number>(3);
+  const [mismatchScore, setMismatchScore] = useState<number>(0);
+  const [gapScore, setGapScore] = useState<number>(-5);
   const [alignScore, setAlignScore] = useState<number>(0);
   const cols = seq1.length + 2;
   const rows = seq2.length + 2;
-  const matchScore = 1;
-  const mismatchScore = -1;
-  const gapScore = -2;
+
   const [NWDpMatrix, setNWDpMatrix] = useState<DpCellType[][]>(null);
   const [optNWPath, setOptNWPath] = useState<[number, number][]>(null);
   const [NWAlignRes, setNWAlignRes] = useState<[string, string]>(null);
@@ -40,10 +41,20 @@ function Home() {
     )
   );
   const handleSend = useCallback(
-    (input1: string, input2: string, mode: "Global" | "Local") => {
+    (
+      input1: string,
+      input2: string,
+      mode: "Global" | "Local",
+      matchScore: string,
+      mismatchScore: string,
+      gapScore: string
+    ) => {
       setSeq1(input1);
       setSeq2(input2);
       setMode(mode);
+      setMatchScore(parseInt(matchScore));
+      setMismatchScore(parseInt(mismatchScore));
+      setGapScore(parseInt(gapScore));
       setDisplayMatrix(
         Array.from({ length: input1.length + 1 }, () =>
           Array.from({ length: input2.length + 1 }, () => ({

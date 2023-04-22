@@ -7,9 +7,16 @@ import {
   InputLabel,
   FormControl,
 } from "@mui/material";
-
+import styles from "../../styles/topbar.module.css";
 interface TopBarProps {
-  onSend: (input1: string, input2: string, mode: "Global" | "Local") => void;
+  onSend: (
+    input1: string,
+    input2: string,
+    mode: "Global" | "Local",
+    matchScore: string,
+    mismatchScore: string,
+    gapScore: string
+  ) => void;
   onReset: () => void;
 }
 
@@ -17,9 +24,12 @@ const TopBar: React.FC<TopBarProps> = ({ onSend, onReset }) => {
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
   const [mode, setMode] = useState<"Global" | "Local">("Global");
+  const [matchScore, setMatchScore] = useState("");
+  const [mismatchScore, setMismatchScore] = useState("");
+  const [gapScore, setGapScore] = useState("");
 
   const handleSend = () => {
-    onSend(input1, input2, mode);
+    onSend(input1, input2, mode, matchScore, mismatchScore, gapScore);
   };
   const handleReset = () => {
     onReset();
@@ -57,6 +67,29 @@ const TopBar: React.FC<TopBarProps> = ({ onSend, onReset }) => {
             onChange={(event) => setInput2(event.target.value)}
             sx={{ mr: 2 }}
           />
+          <div className="flex justify-around m-0 max-w-xs">
+            <input
+              type="text"
+              className={styles.compact_input}
+              value={matchScore}
+              onChange={(event) => setMatchScore(event.target.value)}
+              placeholder="match score"
+            />
+            <input
+              type="text"
+              value={mismatchScore}
+              onChange={(event) => setMismatchScore(event.target.value)}
+              className={styles.compact_input}
+              placeholder="mismatch score"
+            />
+            <input
+              type="text"
+              value={gapScore}
+              onChange={(event) => setGapScore(event.target.value)}
+              className={styles.compact_input}
+              placeholder="gap score"
+            />
+          </div>
           <Button
             variant="outlined"
             color="success"
