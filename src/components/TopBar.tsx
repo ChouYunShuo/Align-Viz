@@ -67,10 +67,10 @@ const TopBar: React.FC<TopBarProps> = ({ onSend, onReset }) => {
             onChange={(event) => setInput2(event.target.value)}
             sx={{ mr: 2 }}
           />
-          <div className="flex justify-around m-0 max-w-xs">
+          <div className="flex justify-around m-0 w-1/4">
             <input
               type="text"
-              className={styles.compact_input}
+              className="w-1/3 p-1 text-sm border border-gray-300 rounded-sm"
               value={matchScore}
               onChange={(event) => setMatchScore(event.target.value)}
               placeholder="match score"
@@ -79,14 +79,14 @@ const TopBar: React.FC<TopBarProps> = ({ onSend, onReset }) => {
               type="text"
               value={mismatchScore}
               onChange={(event) => setMismatchScore(event.target.value)}
-              className={styles.compact_input}
+              className="w-1/3 p-1 text-sm border border-gray-300 rounded-sm"
               placeholder="mismatch score"
             />
             <input
               type="text"
               value={gapScore}
               onChange={(event) => setGapScore(event.target.value)}
-              className={styles.compact_input}
+              className="w-1/3 p-1 text-sm border border-gray-300 rounded-sm"
               placeholder="gap score"
             />
           </div>
