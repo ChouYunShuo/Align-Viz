@@ -37,8 +37,10 @@ const TopBar: React.FC<TopBarProps> = ({ onSend, onReset }) => {
   //console.log("In TopBar");
   return (
     <div className="fixed backdrop-blur-sm bg-slate-200 z-50 top-0 left-0 right-0 h-20 shadow-2xl flex items-center justify-between">
-      <div className="container max-w-7xl mx-auto w-full flex justify-between items-center">
-        <div className="ml-10 text-2xl">Alignment Visualizer</div>
+      <div className="container max-w-9xl mx-auto w-full flex justify-between items-center gap-12">
+        <div className="ml-10 text-2xl whitespace-nowrap">
+          Alignment Visualizer
+        </div>
         <div className="mr-10 flex items-center">
           <FormControl variant="standard" sx={{ minWidth: 120, mr: 2 }}>
             <InputLabel id="mode-select-label">Alignment Mode</InputLabel>
@@ -102,6 +104,18 @@ const TopBar: React.FC<TopBarProps> = ({ onSend, onReset }) => {
             Reset
           </Button>
         </div>
+        <a
+          href="https://github.com/ChouYunShuo/Align-Viz"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="/github-mark.png"
+            alt="GitHub Logo"
+            width="32"
+            height="32"
+          />
+        </a>
       </div>
     </div>
   );
