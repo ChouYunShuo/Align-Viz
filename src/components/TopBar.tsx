@@ -7,7 +7,7 @@ import {
   InputLabel,
   FormControl,
 } from "@mui/material";
-import styles from "../../styles/topbar.module.css";
+import styles from "../../styles/Topbar.module.css";
 interface TopBarProps {
   onSend: (
     input1: string,
