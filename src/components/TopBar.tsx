@@ -69,7 +69,7 @@ const TopBar: React.FC<TopBarProps> = ({ onSend, onReset }) => {
             onChange={(event) => setInput2(event.target.value)}
             sx={{ mr: 2 }}
           />
-          <div className="flex justify-around m-0 w-1/4">
+          <div className="flex justify-around m-0 w-1/4 gap-1">
             <input
               type="text"
               className="w-1/3 p-1 text-sm border border-gray-300 rounded-sm"
