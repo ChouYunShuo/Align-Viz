@@ -96,7 +96,7 @@ function Home() {
     mode: "Global" | "Local",
     matchScore: number,
     mismatchScore: number,
-    gapScorenumber
+    gapScore: number
   ) => {
     const result = needlemanWunsch(
       input1,
