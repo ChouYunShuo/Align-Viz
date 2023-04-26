@@ -16,9 +16,9 @@ function Home() {
   const [seq1, setSeq1] = useState<string>(init_seq1);
   const [seq2, setSeq2] = useState<string>(init_seq2);
   const [mode, setMode] = useState<"Global" | "Local">("Global");
-  const [matchScore, setMatchScore] = useState<number>(3);
-  const [mismatchScore, setMismatchScore] = useState<number>(0);
-  const [gapScore, setGapScore] = useState<number>(-5);
+  const [matchScore, setMatchScore] = useState<number>(1);
+  const [mismatchScore, setMismatchScore] = useState<number>(-1);
+  const [gapScore, setGapScore] = useState<number>(2);
   const [alignScore, setAlignScore] = useState<number>(0);
   const cols = seq1.length + 2;
   const rows = seq2.length + 2;
@@ -63,7 +63,14 @@ function Home() {
           }))
         )
       );
-      runAlignments(input1, input2, mode);
+      runAlignments(
+        input1,
+        input2,
+        mode,
+        parseInt(matchScore),
+        parseInt(mismatchScore),
+        parseInt(gapScore)
+      );
     },
     []
   );
@@ -86,7 +93,10 @@ function Home() {
   const runAlignments = (
     input1: string,
     input2: string,
-    mode: "Global" | "Local"
+    mode: "Global" | "Local",
+    matchScore: number,
+    mismatchScore: number,
+    gapScorenumber
   ) => {
     const result = needlemanWunsch(
       input1,
