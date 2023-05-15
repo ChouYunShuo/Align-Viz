@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Align-Viz: Pairwise Sequence Alignment Visualizer
 
-Check out the deployed demo on vercel: https://align-viz.vercel.app/
+## Description :clipboard:
 
-## Getting Started
+Align-Viz is a user-friendly web-based tool designed to facilitate the visualization, interpretation, and analysis of sequence alignment results. Leveraging dynamic programming-based algorithms, Align-Viz provides an interactive platform for bioinformatics researchers, educators, and students to learn sequence alignment algorithms, eliminating the need for extensive bioinformatics expertise or external software.
 
-First, run the development server:
+## Sceenshots :camera:
+
+Global Alignment Mode
+![Global Alignment Mode](./public/global_demo.png?raw=true)
+
+Local Alignment Mode
+![Local Alignment Mode](./public/local_demo.png?raw=true)
+
+## Features 🧬
+
+- Needleman-Wunsch (Global alignment) and Smith-Waterman (Local alignment) algorithms.
+- Dynamic real-time visualization of alignment matrices.
+- Customizable scoring parameters for matches, mismatches, and gaps.
+- Intuitive and user-friendly interface.
+- No local installation required; accessible via the web.
+
+## Usage 🧪
+
+1. Enter sequences in the input fields.
+2. Choose the alignment mode (Global or Local).
+3. Specify scoring parameters for matches, mismatches, and gaps.
+4. Click "Run" to initiate the alignment process.
+5. Reset the visualizer or change parameters for another run.
+
+## Built With :zap:
+
+1. React
+2. Typescript
+3. Next JS
+
+## Documentation :book:
+
+For more detailed information on the project and the implementation of the algorithms, refer to the [documentation](./public/02-710_Genomics_Report.pdf)
+
+## Deployment :rocket:
+
+The application is deployed on the Vercel platform. Check out the live demo here. https://align-viz.vercel.app/
+
+## Setup and Installation :wrench:
+
+You need to have Node.js (v12 or above) and npm installed on your machine.
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
+git clone https://github.com/ChouYunShuo/Align-Viz
+cd align-viz
+```
+
+2. Install dependencies:
+   The project dependencies are managed using Yarn. Once Yarn is installed, you can install the project dependencies by running:
+
+```bash
+yarn install
+```
+
+3. Start the development server
+   After the dependencies are installed, you can start the development server by running:
+
+```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application should now be running at http://localhost:3000. Open it in your browser to confirm.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Contributing :hammer:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+We welcome contributions to this project. To contribute, please first discuss the changes you wish to make via issue, email, or any other method with the owners of this repository before making the changes.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+After you have discussed your proposed changes, you can submit a pull request.
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**[MIT license](http://opensource.org/licenses/mit-license.php)**
+This project is licensed under the MIT License.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contact
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you have any questions, feel free to contact us. yunshuoc@andrew.cmu.edu
